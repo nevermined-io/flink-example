@@ -13,7 +13,9 @@ This example provides a simple flink batch word count. This job calculates the n
 in a file. The integration of this job with Nevermined allows to obtain this final result without making necessary to
 provide the full input data to the algorithm provider.
 
-## Requirements
+## Getting started
+
+### Requirements
 
 To compile and run this project you need:
 
@@ -23,7 +25,7 @@ To compile and run this project you need:
 
 If you want to run using Docker instances you need Docker and Docker compose.
 
-## How to compile?
+### How to compile?
 
 The following command should compile the application, execute the tests and build the application jar:
 
@@ -31,7 +33,7 @@ The following command should compile the application, execute the tests and buil
 mvn clean package
 ```
 
-## How to run the application?
+### How to run the application locally?
 
 First you need to have Flink installed in your environment and run the cluster using the command:
 
@@ -45,4 +47,29 @@ To run the application you can execute the following command:
 $FLINK_HOME/bin/flink run -c io.keyko.nevermined.examples.WordCountJob target/nevermined-flink-example-*.jar --input $INPUT_FILE --output $OUTPUT_FILE
 ```
 
+### How to run the application in Docker
+
+```
+docker pull flink:1.11-scala_2.11-java11
+```
+
+## Releasing the application
+
+As soon as you have a new version of the application to be released you only need to tag the application
+
+```bash
+git tag $TAG
+git push origin $TAG
+```
+
+This will generate a new release on github:
+
+```bash
+https://github.com/keyko-io/nevermined-flink-example/releases
+```
+
+Where you will find available the application binary ready to be shipped. For example for the tag `v0.1.0`:
+https://github.com/keyko-io/nevermined-flink-example/releases/download/v0.1.0/nevermined-flink-example-0.1.0.jar
+
+## Nevermined integration
 
