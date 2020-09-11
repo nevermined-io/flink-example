@@ -21,3 +21,17 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+.idea
+target
+*.iml
+/.project
+/.settings/
+/.classpath
+
+# Avoiding to upload credentials
+src/test/resources/accounts/
+src/test/resources/networks/
+
+keeper/src/main/java/
+keeper/src/main/resources/
