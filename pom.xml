@@ -162,7 +162,7 @@ under the License.
 							</filters>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>io.keyko.nevermined.examples.StreamingJob</mainClass>
+									<mainClass>io.keyko.nevermined.examples.WordCountJob</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
