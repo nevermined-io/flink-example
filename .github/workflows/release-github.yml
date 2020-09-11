@@ -24,5 +24,6 @@ jobs:
         with:
           files: |
             target/nevermined-flink-*.jar
+            nevermined-entrypoint.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
