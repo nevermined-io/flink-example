@@ -10,6 +10,9 @@ import org.apache.flink.examples.java.wordcount.util.WordCountData;
 import org.apache.flink.util.Collector;
 import org.apache.flink.util.Preconditions;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 
 public class WordCountJob {
 
@@ -24,27 +27,28 @@ public class WordCountJob {
         env.getConfig().setGlobalJobParameters(params);
 
         // get input data
-        DataSet<String> text = null;
+        final DataSet<String>[] text = new DataSet[]{null};
         if (params.has("input")) {
-            // union all the inputs from text files
-            for (String input : params.getMultiParameterRequired("input")) {
-                if (text == null) {
-                    text = env.readTextFile(input);
-                } else {
-                    text = text.union(env.readTextFile(input));
-                }
-            }
-            Preconditions.checkNotNull(text, "Input DataSet should not be null.");
+            Files.walk(Paths.get(params.get("input")))
+                    .filter(Files::isRegularFile)
+                    .forEach( file -> {
+                        if (text[0] == null) {
+                            text[0] = env.readTextFile(file.toAbsolutePath().toString());
+                        } else {
+                            text[0] = text[0].union(env.readTextFile(file.toAbsolutePath().toString()));
+                        }
+                    });
+            Preconditions.checkNotNull(text[0], "Input DataSet should not be null.");
         } else {
             // get default test text data
             System.out.println("Executing WordCount example with default input data set.");
             System.out.println("Use --input to specify file input.");
-            text = WordCountData.getDefaultTextLineDataSet(env);
+            text[0] = WordCountData.getDefaultTextLineDataSet(env);
         }
 
         DataSet<Tuple2<String, Integer>> counts =
                 // split up the lines in pairs (2-tuples) containing: (word,1)
-                text.flatMap(new Tokenizer())
+                text[0].flatMap(new Tokenizer())
                         // group by the tuple field "0" and sum up tuple field "1"
                         .groupBy(0)
                         .sum(1);
