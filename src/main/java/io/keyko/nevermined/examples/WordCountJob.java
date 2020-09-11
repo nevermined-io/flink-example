@@ -5,6 +5,7 @@ import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.MultipleParameterTool;
+import org.apache.flink.core.fs.FileSystem;
 import org.apache.flink.examples.java.wordcount.util.WordCountData;
 import org.apache.flink.util.Collector;
 import org.apache.flink.util.Preconditions;
@@ -50,7 +51,7 @@ public class WordCountJob {
 
         // emit result
         if (params.has("output")) {
-            counts.writeAsCsv(params.get("output"), "\n", " ");
+            counts.writeAsCsv(params.get("output"), "\n", " ", FileSystem.WriteMode.OVERWRITE);
             // execute program
             env.execute("WordCount Example");
         } else {
