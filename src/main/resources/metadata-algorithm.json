@@ -1,0 +1,41 @@
+{
+  "attributes": {
+    "main": {
+      "author": "John Doe",
+      "checksum": "0x52b5c93b82dd9e7ecc3d9fdf4755f7f69a54484941897dc517b4adfe3bbc3377",
+      "dateCreated": "2019-02-08T08:13:49Z",
+      "license": "CC-BY",
+      "name": "Word count script",
+      "price": "0",
+      "files": [
+        {
+          "index": 0,
+          "contentType": "text/text",
+          "checksum": "52b5c93b82dd9e7ecc3d9fdf4755f7f69a544",
+          "checksumType": "MD5",
+          "contentLength": "12057507",
+          "url": "https://github.com/keyko-io/nevermined-docs/raw/feature/public-link-flink-example/resources/nevermined-flink-example.jar"
+        }
+      ],
+      "type": "algorithm",
+      "algorithm": {
+        "language": "python",
+        "format": "py",
+        "version": "0.1",
+        "entrypoint": "start-cluster.sh && flink run -c io.keyko.nevermined.examples.WordCountJob ./nevermined-flink-example.jar --input $NEVERMINED_INPUTS_PATH --output $NEVERMINED_OUTPUTS_PATH/result.csv",
+        "requirements": {
+          "container": {
+            "image": "flink",
+            "tag": "1.11.2-scala_2.12-java11",
+            "checksum":"sha256:53ad3a03b2fb240b6c494339821e6638cd44c989bcf26ec4d51a6a52f7518c1d"
+          }
+        }
+      }
+    },
+    "additionalInformation": {
+      "description": "Workflow to aggregate weather information",
+      "tags": ["weather", "uk", "2011", "workflow", "aggregation"],
+      "copyrightHolder": "John Doe"
+    }
+  }
+}

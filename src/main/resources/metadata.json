@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "main": {
+      "name": "Nevermined protocol white paper",
+      "dateCreated": "2012-02-01T10:55:11Z",
+      "author": "Mario",
+      "license": "CC0: Public Domain",
+      "price": "0",
+      "files": [
+        {
+          "index": 0,
+          "contentType": "text/text",
+          "checksum": "sha256:53ad3a03b2fb240b6c494339821e6638cd44c989bcf26ec4d51a6a52f7518c1d",
+          "checksumType": "MD5",
+          "contentLength": "12057507",
+          "url": "https://raw.githubusercontent.com/keyko-io/nevermined-tools/master/README.md"
+        }
+      ],
+      "type": "dataset"
+    }
+  }
+}
