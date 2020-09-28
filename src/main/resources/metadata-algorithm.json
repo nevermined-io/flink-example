@@ -14,7 +14,7 @@
           "checksum": "52b5c93b82dd9e7ecc3d9fdf4755f7f69a544",
           "checksumType": "MD5",
           "contentLength": "12057507",
-          "url": "https://github.com/keyko-io/nevermined-docs/raw/feature/public-link-flink-example/resources/nevermined-flink-example.jar"
+          "url": "https://github.com/keyko-io/nevermined-docs/raw/master/resources/nevermined-flink-example.jar"
         }
       ],
       "type": "algorithm",
