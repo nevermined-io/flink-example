@@ -22,7 +22,7 @@ under the License.
 
 	<groupId>io.keyko.nevermined.examples</groupId>
 	<artifactId>flink</artifactId>
-	<version>0.2.0</version>
+	<version>0.3.0</version>
 	<packaging>jar</packaging>
 
 	<name>Flink Quickstart Job</name>
@@ -58,7 +58,7 @@ under the License.
         <dependency>
             <groupId>io.keyko.nevermined</groupId>
             <artifactId>api</artifactId>
-            <version>0.3.4</version>
+            <version>0.3.6</version>
         </dependency>
 		<!-- Apache Flink dependencies -->
 		<!-- These dependencies are provided, because they should not be packaged into the JAR file. -->
