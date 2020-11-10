@@ -1,5 +1,5 @@
 FROM flink:scala_2.11-java11
-LABEL maintainer="Keyko <root@keyko.io>"
+LABEL maintainer="Nevermined <root@nevermined.io>"
 
 RUN apt-get update \
     && apt-get install openjdk-11-jdk maven -y \
@@ -17,7 +17,7 @@ COPY pom.xml /
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
-RUN mvn clean package
+RUN mvn clean package -DskipTests=true
 RUN mv target/nevermined-flink-example-*.jar /nevermined-example.jar
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
